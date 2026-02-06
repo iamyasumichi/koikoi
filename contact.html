@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>お問い合わせ | こいこい</title>
+	<meta name="description" content="こいこいイベントの問い合わせフォームが掲載されたページです">
+	<!-- cssのリンク -->
+	<link rel="stylesheet" href="./css/contact.css">
+	<link rel="stylesheet" href="./css/common.css">
+	<!-- jsのリンク -->
+	<script src="./js/menu.js" defer></script>
+	<!-- google fontsのリンク -->
+	<!-- Dela Gothic OneとM PLUS 1p -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=M+PLUS+1p:wght@400;500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+	<!-- headerここから -->
+	<header>
+	  <div class="header-inner">
+			<a href="./index.html" class="header-logo">
+			こいこい
+			</a>
+			<div class="header-site-menu">
+				<nav class="site-menu">
+					<ul>
+						<li><a href="./rules.html" target="_blank">あそび方</a></li>
+						<li class="nav-item">
+							<a href="">開催地</a>
+								<ul class="dropdown">
+								<li><a href="./about_osaka.html" target="_blank">大阪府</a></li>
+								<li><a href="./about_kyoto.html" target="_blank">京都府</a></li>
+								<li><a href="./about_shiga.html" target="_blank">滋賀県</a></li>
+								<li><a href="./about_nara.html" target="_blank">奈良県</a></li>
+								<li><a href="./about_hyogo.html" target="_blank">兵庫県</a></li>
+								<li><a href="./about_wakayama.html" target="_blank">和歌山県</a></li>
+								</ul>
+						</li>
+						<li><a href="./contact.html">お問い合わせ</a></li>
+					</ul>
+				</nav>
+		  </div>
+	  </div>
+	</header>
+<!-- headerここまで -->
+
+<!-- mainここから -->
+<main class="main">
+	<div class="contact">
+		<h1>お問い合わせ</h1>
+		<form action="#">
+			<dl class="form-area">
+				
+				<dt><span class="required">宛先</span></dt>
+				<dd><input type="text" class="input-text" name="address" required></dd>
+
+				<dt><span class="required">お名前</span></dt>
+				<dd><input type="text" class="input-text" name="name" required></dd>
+	
+				<dt><span class="required">メールアドレス</span></dt>
+				<dd><input type="email" class="input-text" name="email" required></dd>
+
+				<dt>お電話番号</dt>
+				<dd><input type="text" class="input-text" name="number"></dd>
+	
+				<dt>お問い合わせ種別</dt>
+				<dd>
+					<select name="genre" class="select-box">
+						<option value="アプリについて" selected>アプリについて</option>
+						<option value="あそび方について">あそび方について</option>
+						<option value="開催地について" class="value">開催地について</option>
+					</select>
+				</dd>
+	
+				<dt>お客様について</dt>
+				<dd>
+					<label class="radiobutton"><input type="radio" name="user-type" value="一般のお客様" checked>一般のお客様</label>
+					<label class="radiobutton"><input type="radio" name="user-type" value="お取引先様">お取引先様</label>
+					<label class="radiobutton"><input type="radio" name="user-type" value="その他">その他</label>
+				</dd>
+	
+				<dt><span class="required">お問い合わせ内容</span></dt>
+				<dd><textarea class="message" name="message" required></textarea></dd>
+			</dl>
+			<p class="confirm-text">ご入力内容を確認の上、お間違いなければ送信してください</p>
+			<div class="submit">
+				<button class="submit-button" type="submit">ご送信</button>
+			</div>
+		</form>
+	</div>
+</main>
+<!-- mainここまで -->
+<!-- footerここから -->
+<footer class="footer">
+	<nav class="footer-site-menu site-menu">
+		<ul>
+			<li><a href="./rules.html" target="_blank">あそび方</a></li>
+			<li class="footer-nav-item">
+				<a href="">開催地</a>
+					<ul class="footer-dropdown">
+					<li><a href="./about_osaka.html" target="_blank">大阪府</a></li>
+					<li><a href="./about_kyoto.html" target="_blank">京都府</a></li>
+					<li><a href="./about_shiga.html" target="_blank">滋賀県</a></li>
+					<li><a href="./about_nara.html" target="_blank">奈良県</a></li>
+					<li><a href="./about_hyogo.html" target="_blank">兵庫県</a></li>
+					<li><a href="./about_wakayama.html" target="_blank">和歌山県</a></li>
+					</ul>
+			</li>
+			<li><a href="./contact.html">お問い合わせ</a></li>
+		</ul>
+	</nav>
+	<a href="./index.html" class="footer-logo">こいこい</a>
+	<p class="footer-support">Suported by
+		<br>関西観光協会&忍天堂</p>
+</footer>
+
+</body>
+</html>

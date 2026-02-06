@@ -1,0 +1,924 @@
+@charset "utf-8";
+
+*,
+::before,
+::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* 要素の幅と高さの計算をしやすくするための設定 */
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 1.6rem;
+  color: #000;
+  line-height: 1;
+  background-color: #fff;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* ここからヘッダー */
+
+.menu-trigger {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  border: none;
+  background: none;
+  cursor: pointer;
+  width: 4rem;
+  height: 4rem;
+}
+
+.menu-trigger span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: #fff;
+  margin: 0 auto;
+  position: relative;
+  transition: 0.3s;
+  opacity: 0;
+  animation: fuwa 1s ease 2s forwards;
+}
+
+.menu-trigger span::before,
+.menu-trigger span::after {
+  content: "";
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+  transition: all 0.3s;
+  opacity: 0;
+  animation: fuwa 1s ease 2s forwards;
+}
+
+.menu-trigger span::before {
+  top: -1rem;
+}
+
+.menu-trigger span::after {
+  top: 1rem;
+}
+
+.menu-trigger.open span::before {
+  top: 0;
+  rotate: 45deg;
+  background-color: #000;
+}
+.menu-trigger.open span::after {
+  top: 0;
+  rotate: -45deg;
+  background-color: #000;
+}
+.menu-trigger.open span {
+  background-color: transparent;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 30rem;
+  height: 100vh;
+  background: #fff;
+  z-index: 999;
+  transition: right 0.5s ease;
+  padding: 10rem 4rem;
+  font-family: "Dela Gothic One", sans-serif;
+  font-weight: normal;
+}
+
+/* メニューが開いた時のクラス */
+.side-menu.active {
+  right: 0;
+}
+
+/* 背景オーバーレイ */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+  z-index: 998;
+}
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu-item ul {
+  margin-left: 10%;
+}
+
+.menu-item ul li {
+  margin: 1rem;
+}
+
+.menu-item {
+  margin-bottom: 2rem;
+  font-size: 2.4rem;
+}
+.menu-item a {
+  text-decoration: none;
+  color: #333;
+}
+
+/* ホバー */
+.menu-item a:hover {
+  color: #ff1a1a;
+  font-size: 3rem;
+}
+
+.menu-item ul li a:hover {
+  color: #ff1a1a;
+  font-size: 3rem;
+}
+
+/* ここまでヘッダー */
+
+/* ここからtop */
+.top {
+  font-family: "Dela Gothic One", sans-serif;
+}
+/* ここから花札 */
+.wrap {
+  background: url(../img/top.png) no-repeat center / cover;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.card {
+  width: 13rem;
+  height: 19.5rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s;
+}
+
+.card:hover {
+  animation: shake 0.1s alternate infinite;
+}
+@keyframes shake {
+  100% {
+    rotate: 2deg;
+  }
+}
+
+.main-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: #fff;
+  opacity: 0;
+  animation: fuwa 1s ease 2s forwards;
+}
+
+@keyframes fuwa {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.main-title h1 {
+  font-size: 20rem;
+  -webkit-text-stroke: 1rem #000;
+  paint-order: stroke;
+  text-shadow: 2.2rem 1rem 0.6rem rgba(0, 0, 0, 0.5);
+}
+
+.main-title h2 {
+  font-size: 3.2rem;
+  -webkit-text-stroke: 0.5rem #000;
+  paint-order: stroke;
+  text-shadow: 2rem 1rem 0.4rem rgba(0, 0, 0, 0.5);
+}
+/* ここまでtop */
+
+/* ここから地球 */
+.intro-earth {
+  position: relative;
+  width: 100%;
+  height: 150vh;
+  overflow-x: hidden;
+  background: url(../img/earth-backup.jpg) no-repeat center / cover;
+}
+.video-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+.intro-earth::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+.earth-text {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  color: #fff;
+  font-family: "M PLUS 1p", sans-serif;
+  font-size: 3.2rem;
+  font-weight: 500;
+  position: relative;
+  z-index: 3;
+  text-shadow: 1rem 0.5rem 1px rgba(0, 0, 0, 0.5);
+}
+.earth-text h3 {
+  text-align: center;
+  padding-top: 2.5%;
+  font-family: "Dela Gothic One", sans-serif;
+  font-size: 4.8rem;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+}
+.earth-text-first {
+  position: absolute;
+  top: 35%;
+  left: 10%;
+  opacity: 0;
+}
+.earth-text-second {
+  position: absolute;
+  bottom: 45%;
+  right: 10%;
+  opacity: 0;
+}
+
+.earth-text-third {
+  position: absolute;
+  bottom: 10%;
+  text-align: center;
+  width: 100%;
+  opacity: 0;
+}
+
+.earth-text span {
+  font-weight: 900;
+}
+
+.earth-text-first,
+.earth-text-second,
+.earth-text-third {
+  opacity: 0;
+  transform: translateY(3rem);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.earth-text-first.active,
+.earth-text-second.active,
+.earth-text-third.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ここまで地球 */
+/* ここから門 */
+.section-wrapper {
+  /* 幅の遊び */
+  height: 400vh;
+  position: relative;
+}
+
+.reveal-container {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+}
+
+.text-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* 門（z-index: 2）より手前に */
+  z-index: 3;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.sliding-text {
+  font-size: 3.6rem;
+  font-family: "M PLUS 1p", sans-serif;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  white-space: nowrap;
+  text-shadow: 2px 2px 0.5rem rgba(0, 0, 0, 0.5);
+  transform: translateX(100%);
+  opacity: 0;
+  text-shadow: 1rem 0.5rem 1px rgba(0, 0, 0, 0.5);
+}
+
+.side {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background-image: url(../img/mon.png);
+  background-size: 200% 100%;
+  z-index: 2;
+  transition: transform 0.1s ease-out;
+}
+
+.left {
+  left: 0;
+  background-position: left;
+}
+
+.right {
+  right: 0;
+  background-position: right;
+}
+
+.content-under {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  font-family: "M PLUS 1p", sans-serif;
+  font-size: 4rem;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  background: url(../img/background.png);
+}
+
+.content-under span {
+  font-family: "Dela Gothic One", sans-serif;
+  font-size: 6.4rem;
+  line-height: 150%;
+  font-weight: normal;
+  -webkit-text-stroke: 0.5rem #000;
+  text-shadow: 0.5rem 0.5rem 2px #000;
+  paint-order: stroke;
+}
+
+.next-section {
+  height: 100vh;
+  background: #333;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ここまで門 */
+
+/* ここからイベント内容 */
+.event-map {
+  height: 100vh;
+  background: url(../img/area_point_cover.png) no-repeat center / cover;
+  font-family: "Dela Gothic One", sans-serif;
+  color: #fff;
+  font-size: 4rem;
+  text-align: center;
+}
+
+.event-map h3 {
+  padding-top: 2rem;
+  line-height: 170%;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+.event-map span {
+  font-size: 6.4rem;
+}
+
+/* ここからスライダー */
+.event-origin {
+  background: url(../img/background.png) no-repeat center / cover;
+  padding: 4.8rem 0;
+}
+
+.event-origin-text {
+  font-family: "M PLUS 1p", sans-serif;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  font-size: 2.8rem;
+  line-height: 150%;
+}
+
+.event-origin-text span {
+  font-family: "Dela Gothic One", sans-serif;
+  font-weight: normal;
+  font-size: 4.2rem;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+.event-img-slider {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  padding: 3rem 0;
+}
+
+.slider-inner {
+  display: flex;
+  animation: loop-slide 20s linear infinite;
+}
+
+.slider-inner li {
+  width: 15rem;
+  height: auto;
+  margin-right: 2rem;
+  box-shadow: 0.5rem 0.5rem 1rem rgba(255, 255, 255, 0.5);
+}
+
+@keyframes loop-slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+/* ここまでスライダー */
+/* ここからイベントのイントロ */
+.event-intro {
+  font-family: "M PLUS 1p", sans-serif;
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #fff;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.intro-inner {
+  padding: 10rem 10rem;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+  line-height: 200%;
+}
+
+.event-intro span {
+  font-family: "Dela Gothic One", sans-serif;
+  font-size: 4rem;
+  font-weight: normal;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+.intro-first {
+  display: flex;
+  text-align: center;
+  min-width: 50rem;
+  margin-left: 3rem;
+}
+
+.intro-black {
+  color: #000;
+}
+.intro-second {
+  text-align: center;
+  position: relative;
+}
+
+.intro-second::after {
+  content: "";
+  position: absolute;
+  width: 35rem;
+  height: 35rem;
+  background-image: url(../img/walk.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  bottom: 20%;
+  right: 0%;
+  opacity: 0;
+  transition: opacity 1s;
+  transform: translateY(3rem);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.intro-second.active::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.event-complete {
+  background: url(../img/original.png) no-repeat center / cover;
+  height: 25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.event-complete span {
+  font-family: "Dela Gothic One", sans-serif;
+  font-size: 250%;
+  -webkit-text-stroke: 0.5rem black;
+  text-shadow: 1rem 1rem 1px rgba(0, 0, 0, 0.5);
+  paint-order: stroke;
+}
+
+/* イベントラスト導入 */
+.event-last {
+  background: url(../img/background.png) no-repeat center / cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  height: 120vh;
+  font-family: "M PLUS 1p", sans-serif;
+  color: #fff;
+  font-weight: bold;
+  font-size: 3.2rem;
+  padding: 4rem 0;
+  overflow-x: hidden;
+}
+
+.event-last span {
+  font-family: "Dela Gothic One", sans-serif;
+  font-weight: normal;
+}
+
+.last-second span {
+  font-size: 4.8rem;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+.last-second {
+  position: relative;
+}
+
+.last-second::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background-image: url(../img/kaze.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  left: -30%;
+  bottom: -10%;
+  opacity: 0;
+  transform: translateY(3rem);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.last-second::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background-image: url(../img/yuge.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  left: 100%;
+  bottom: -10%;
+  opacity: 0;
+  transform: translateY(3rem);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.last-second.active::before {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.last-second.active::after {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.last-third {
+  font-size: 5.6rem;
+  -webkit-text-stroke: 0.5rem #000;
+  text-shadow: 5px 5px 3px #000;
+  paint-order: stroke;
+}
+
+.link-button {
+  display: inline-block;
+  min-width: 20rem;
+  line-height: 4.8rem;
+  border-radius: 2.4rem;
+  background-color: #000;
+  position: relative;
+}
+
+.link-button-area {
+  z-index: 1;
+}
+
+.link-button::before {
+  content: "";
+  position: absolute;
+  background: url(../img/syutujin.png) no-repeat center / cover;
+  z-index: -1;
+  width: 19rem;
+  height: 19rem;
+  top: 1rem;
+  opacity: 0;
+  transform: translate(-20%, -80%);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  pointer-events: none;
+}
+
+.link-button:hover::before {
+  opacity: 1;
+  transform: translate(-20%, -90%);
+}
+
+.link-button:hover {
+  background-color: #fff;
+  color: #ff1a1a;
+  box-shadow: 0px 6px 5px #000;
+}
+
+/* ここまでマップのイントロ */
+/* ここから開催地紹介 */
+.area {
+  background: url(../img/background.png) no-repeat center / cover;
+  font-family: "Dela Gothic One", sans-serif;
+  color: #fff;
+  min-height: 100vh;
+}
+.area-title {
+  text-align: center;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+.area h3 {
+  display: inline-block;
+  font-size: 5.2rem;
+}
+
+.area h3::after {
+  content: "";
+  display: block;
+  background-color: #000;
+  width: 100%;
+  height: 3px;
+}
+
+.click-announcement {
+  font-size: 2.5rem;
+  text-align: center;
+  -webkit-text-stroke: 2px black;
+  text-shadow: 2px 2px 0px black;
+  paint-order: stroke;
+}
+
+.area ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 1rem;
+  column-gap: 5rem;
+  max-width: 95rem;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.area ul li {
+  display: flex;
+  width: 100%;
+}
+
+.area ul li a {
+  max-width: 11rem;
+}
+
+.area ul li a:hover {
+  transform: scale(1.05);
+}
+
+.area ul li a:hover + .area-text {
+  text-shadow: 0.5rem 0.5rem 2px rgba(0, 0, 0, 0.5);
+}
+
+.area-text {
+  width: 100%;
+  margin-left: 1rem;
+}
+
+.area-text-title h4 {
+  font-size: 3.4rem;
+}
+.area-text-title p {
+  font-size: 1.5rem;
+  text-align: end;
+}
+
+.area-text-season {
+  margin-top: 20%;
+  display: flex;
+  font-size: 1.8rem;
+}
+
+.area-text-season span {
+  font-size: 2.4rem;
+  margin-left: 3rem;
+}
+
+/* ここまで開催地紹介 */
+
+/* ここから特典紹介 */
+.present {
+  background: url(../img/background.png) no-repeat center / cover;
+  height: 100vh;
+  font-family: "Dela Gothic One", sans-serif;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.present h3 {
+  font-size: 4.8rem;
+  margin-top: 2rem;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+.present h3::after {
+  content: "";
+  display: block;
+  background-color: #000;
+  width: 100%;
+  height: 3px;
+}
+
+.present-inner {
+  display: flex;
+  margin-top: 2rem;
+  width: 90%;
+}
+
+.present-inner span {
+  color: #000;
+}
+
+.month {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+}
+.month-text p {
+  font-size: 3.2rem;
+  line-height: 110%;
+}
+
+.role {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+}
+
+.role-text p {
+  font-size: 3.2rem;
+  line-height: 110%;
+}
+
+.present-img {
+  max-width: 100%;
+  margin: 1rem;
+}
+
+.present-img p {
+  font-size: 3rem;
+  color: #000;
+}
+
+.present-img img {
+  max-height: 28vh;
+  width: auto;
+}
+.arrow {
+  margin-top: 2rem;
+  height: 15vh;
+}
+
+.arrow img {
+  height: 100%;
+}
+
+.get-text p {
+  margin-top: 2rem;
+  font-size: 4.8rem;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+  padding-bottom: 4rem;
+}
+
+/* ここまで特典紹介 */
+
+/* ここからフッター */
+.site-menu ul {
+  display: flex;
+}
+
+.site-menu ul li {
+  margin: 0 2rem;
+}
+
+.site-menu ul li a {
+  font-family: "Dela Gothic One", sans-serif;
+  font-size: 2.4rem;
+}
+
+.footer {
+  color: #fff;
+  background: url(../img/footer.jpg) no-repeat center / cover;
+  padding: 1.5rem 0 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  justify-content: space-between;
+}
+
+.footer-site-menu ul li a {
+  font-size: 2.8rem;
+  text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 0px 1px 0 #000, 0-1px 0 #000,
+    -1px 1px 0 #000, 1px -1px 0 #000, -1px 0 0 #000, 1px 0 0 #000;
+}
+
+.footer-logo {
+  font-size: 30rem;
+  font-family: "Dela Gothic One", sans-serif;
+  text-shadow: 1rem 0.5rem 0.5rem rgba(0, 0, 0, 0.5);
+}
+
+.footer-support {
+  font-size: 2.8rem;
+  font-family: "Dela Gothic One", sans-serif;
+  text-align: center;
+  text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
+}

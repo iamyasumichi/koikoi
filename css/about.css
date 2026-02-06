@@ -1,0 +1,122 @@
+@charset "utf-8";
+
+.select-detail {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: all 0.5s ease;
+  transform: translateY(-2rem);
+}
+
+.select-detail.active {
+  display: flex;
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 1rem 4rem 1rem;
+  max-height: 50rem;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.select-img {
+  width: 60%;
+  display: flex;
+  align-items: flex-start;
+}
+
+.img-1 {
+  width: 79%;
+}
+
+.img-2 {
+  width: 30%;
+  margin-left: -6rem;
+  margin-top: 6rem;
+}
+
+.select-about {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  padding-left: 3rem;
+}
+.select-about h3 {
+  font-size: 3.2rem;
+}
+
+.select-about p {
+  font-family: "Yuji Syuku", sans-serif;
+  font-size: 2.4rem;
+  margin-top: 2rem;
+}
+
+.area-about {
+  font-family: "Dela Gothic One", sans-serif;
+}
+
+.kansai {
+  display: flex;
+  align-items: center;
+  max-width: 120rem;
+  height: 7.5rem;
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+.kansai h1 {
+  font-size: 4.8rem;
+  margin-right: 2rem;
+}
+
+.kansai h2 {
+  font-size: 2rem;
+}
+
+.hanafuda {
+  background: url(../img/background.png) no-repeat center / cover;
+  color: #fff;
+  padding: 1rem 0;
+}
+
+.hanafuda-inner {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+
+.hanafuda-content {
+  display: flex;
+  max-width: 120rem;
+  margin: 0 auto;
+}
+
+.hanafuda-note {
+  font-size: 2.4rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 5rem;
+  line-height: 1.5;
+}
+
+.hanafuda-note h3 {
+  font-size: 4rem;
+}
+
+.hanafuda-nav {
+  display: grid;
+  grid-template-columns: repeat(4, 125px);
+  column-gap: 10rem;
+}
+
+.hanafuda-img {
+  transition: transform 0.3s ease;
+}
+
+.hanafuda-img:hover {
+  transform: scale(1.05);
+}
+
+.first-month {
+  border-bottom: 2px solid #be1515;
+}

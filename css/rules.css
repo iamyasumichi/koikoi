@@ -1,0 +1,75 @@
+@charset "utf-8";
+
+.top-img {
+  background: url(../img/rules-top.png) no-repeat center / cover;
+  min-height: calc(100vh - 7.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-img h1 {
+  font-size: 12rem;
+  color: #fff;
+  font-family: "Dela Gothic One", sans-serif;
+  text-align: center;
+  text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 0 2px 0 #000, 0 -2px 0 #000,
+    -2px 2px 0 #000, 2px -2px 0 #000, -2px 0 0 #000, 2px 0 0 #000;
+}
+
+.rules-inner {
+  display: flex;
+  max-width: 120rem;
+  margin: 10% auto;
+}
+
+.inner-left {
+  width: 50%;
+  text-align: center;
+}
+.inner-left img {
+  max-height: 100vh;
+}
+.app {
+  display: flex;
+  justify-content: center;
+}
+.app img {
+  max-width: 13rem;
+  margin: 2rem;
+}
+
+.inner-right {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.inner-right h2 {
+  display: inline-block;
+  font-size: 3.2rem;
+  font-family: "Dela Gothic One", sans-serif;
+}
+
+.inner-right h2::after {
+  content: "";
+  display: block;
+  background-color: #ff1a1a;
+  width: 100%;
+  height: 3px;
+}
+
+.inner-right p {
+  font-size: 2.6rem;
+  font-family: "M PLUS 1p", sans-serif;
+  margin-top: 2rem;
+}
+
+.inner-right-bottom {
+  margin-top: 10%;
+}
+
+.rules {
+  margin: 3rem 0;
+}
